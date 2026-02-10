@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Ingénieur Génie Civil</title>
+    <style>
+        /* --- CONFIGURATION GÉNÉRALE --- */
+        :root {
+            --primary-color: #2c3e50; /* Bleu foncé professionnel */
+            --accent-color: #e67e22;  /* Orange sécurité */
+            --bg-color: #f4f7f6;      /* Gris très clair pour le fond */
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- EN-TÊTE (HEADER) --- */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        header p { margin-top: 5px; font-size: 1.1rem; opacity: 0.9; }
+
+        /* --- CONTENEUR PRINCIPAL --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* --- LA GRILLE (LES CASES) --- */
+        .portfolio-grid {
+            display: grid;
+            /* Crée des colonnes automatiques (min 350px de large) */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 30px; /* Espace entre les cases */
+        }
+
+        /* --- STYLE DES CARTES (LES BOITES) --- */
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden; /* Empêche l'image de dépasser */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 4px solid  #0096FF;/*var(--accent-color); /* Ligne de couleur en bas */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px); /* Légère remontée au survol */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* --- LA CASE PHOTO --- */
+        .photo-box {
+            width: 100%;
+            height: 250px;
+            background-color: #ddd;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* L'image remplit la case sans être déformée */
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .photo-box img {
+            transform: scale(1.05); /* Zoom léger sur l'image au survol */
+        }
+
+        /* --- LA CASE COMMENTAIRE --- */
+        .comment-box {
+            padding: 25px;
+        }
+
+        .category-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .comment-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .comment-box p {
+            color: #555;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .technical-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* --- PIED DE PAGE --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.9rem;
+        }
+.btn-retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Espace entre la flèche et le texte */
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-retour:hover {
+  background-color: #e0e0e0;
+  transform: translateX(-3px); /* Petit effet de mouvement vers la gauche */
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚓ Struc-Navigation</h1>
+        <p>Diagnostic & Calcul Structurelle</p>
+    </header>
+
+    <div class="container">
+        <div class="portfolio-grid">
+
+            <article class="project-card">
+                <div class="photo-box">
+                    <img src="Le navire/Cartenavigation/G1.png" alt="Vague de Calcul ">
+                </div>
+                <div class="comment-box">
+                    <span class="category-tag">Bâtiment & Structure</span>
+                    <h3>Calcul et Vérification</h3>
+                    <p>
+                        Modélisation tridimensionnelle des structures, intégrant l’analyse du comportement mécanique global et local.
+Calculs structuraux et vérifications réglementaires conformément aux règles techniques en vigueur, applicables aux bâtiments et hangars, incluant la représentation graphique détaillée des ouvrages existants et de leurs éléments porteurs
+                    </p>
+                    <div class="technical-details">
+                        <strong>Outils :</strong> Protastructure, Cype ,Robot Structural Analysis, Midas, Etabs
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="photo-box">
+                    <img src="Le navire/bat01.jpg" alt="Calcul de structure">
+                </div>
+                <div class="comment-box">
+                    <span class="category-tag">Structure</span>
+                    <h3>Modélisation 3D</h3>
+                    <p>
+                       Élaboration de maquettes numériques 3D destinées à améliorer la qualité de présentation des rapports de diagnostic, intégrant une cartographie détaillée et hiérarchisée des désordres, avec localisation précise, typologie des pathologies et niveau de gravité.
+                    </p>
+                    <div class="technical-details">
+                        <strong>Outils :</strong>  Revit, Archicad, Tekla.
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="photo-box">
+                    <img src="Le navire/Cartenavigation/G4.png" alt="Sondage As Built">
+                </div>
+                <div class="comment-box">
+                    <span class="category-tag">Recommandations</span>
+                    <h3>Des Solutions Techniques</h3>
+                    <p>
+                        Développement de solutions techniques conformes aux exigences “As Built”, basées sur la prise en compte détaillée de l’état existant des ouvrages, et des écarts constatés par rapport aux documents de conception initiaux.
+Solutions intègrent l’analyse de la conformité structurelle, l’évaluation des performances résiduelles, ainsi que la définition de mesures correctives ou de renforcement, en adéquation avec les normes et règlements techniques en vigueur.
+                    </p>
+                    <div class="technical-details">
+                        <strong>Méthode :</strong> Relevés Etat des lieux & Ferroscan ou Pachometre.
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+<button class="btn-retour" onclick="window.location.href='portfolio.html#portfolio'">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5M12 19l-7-7 7-7"/>
+  </svg>
+  Retour
+</button>
+    <footer>
+        <p>&copy; 2026 - Portfolio-Géotechnique</p>
+    </footer>
+
+</body>
+</html>

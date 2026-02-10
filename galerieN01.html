@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Ingénieur Génie Civil</title>
+    <style>
+        /* --- CONFIGURATION GÉNÉRALE --- */
+        :root {
+            --primary-color: #2c3e50; /* Bleu foncé professionnel */
+            --accent-color: #e67e22;  /* Orange sécurité */
+            --bg-color: #f4f7f6;      /* Gris très clair pour le fond */
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- EN-TÊTE (HEADER) --- */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        header p { margin-top: 5px; font-size: 1.1rem; opacity: 0.9; }
+
+        /* --- CONTENEUR PRINCIPAL --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* --- LA GRILLE (LES CASES) --- */
+        .portfolio-grid {
+            display: grid;
+            /* Crée des colonnes automatiques (min 350px de large) */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 30px; /* Espace entre les cases */
+        }
+
+        /* --- STYLE DES CARTES (LES BOITES) --- */
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden; /* Empêche l'image de dépasser */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 4px solid  #0096FF;/*var(--accent-color); /* Ligne de couleur en bas */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px); /* Légère remontée au survol */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* --- LA CASE PHOTO --- */
+        .photo-box {
+            width: 100%;
+            height: 250px;
+            background-color: #ddd;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* L'image remplit la case sans être déformée */
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .photo-box img {
+            transform: scale(1.05); /* Zoom léger sur l'image au survol */
+        }
+
+        /* --- LA CASE COMMENTAIRE --- */
+        .comment-box {
+            padding: 25px;
+        }
+
+        .category-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .comment-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .comment-box p {
+            color: #555;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .technical-details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* --- PIED DE PAGE --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.9rem;
+        }
+         .container {
+            text-align: center;
+        }
+
+        .btn-retour {
+            /* Structure de base */
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            
+            /* Style visuel */
+            background-color: white;
+            color: var(--text-color);
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            
+            /* Ombre et transitions */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animation de l'icône SVG */
+        .btn-retour svg {
+            transition: transform 0.3s ease;
+        }
+
+        /* État au survol (Hover) */
+        .btn-retour:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-retour:hover svg {
+            transform: translateX(-5px);
+        }
+
+        /* Effet de clic (Active) */
+        .btn-retour:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Petit effet de brillance au passage */
+        .btn-retour::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .btn-retour:hover::after {
+            left: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚓Géo-Navigation</h1>
+        <p>Expertise Technique & Calcul d'ouvrage</p>
+    </header>
+
+    <div class="container">
+        <div class="portfolio-grid">
+
+            <article class="project-card">
+                <div class="photo-box">
+                    <img src="Lenavire/Cartenavigation/G1.png" alt="Vague de Calcul ">
+                </div>
+                <div class="comment-box">
+                    <span class="category-tag">Evaluation</span>
+                    <h3>Ouvrage soutennement</h3>
+                    <p>
+                        Des investigations et évaluations structurelles approfondies des murs de soutènement, quelle quent l’analyse des caractéristiques mécaniques des matériaux, la vérification de la stabilité globale et locale des ouvrages, ainsi que l’évaluation de leur état de conservation. À l’issue de ces analyses, des conclusions techniques seront formulées quant à leur intégrité structurelle, leur niveau de sécurité et leur durabilité.
+                    </p>
+                    <div class="technical-details">
+                        <strong>Outils :</strong> Logicel Cype & Revit
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="photo-box">
+                    <img src="Lenavire/Cartenavigation/G4.png" alt="Calcul de structure">
+                </div>
+                <div class="comment-box">
+                    <span class="category-tag">Requisition Judiciaire</span>
+                    <h3>Calcul et Vérification</h3>
+                    <p>
+                     Dans le cadre d’une réquisition judiciaire, des évaluations techniques et structurelles des murs de soutènement ont été réalisées, comprenant la vérification de la conformité réglementaire ainsi que des calculs numériques de stabilité. L’expertise a porté sur l’état des matériaux, la stabilité globale de l’ouvrage sous charges permanentes et variables, ainsi que sur le respect des normes de sécurité. Les analyses menées ont conduit à l’émission d’un avis quant à l’état général et à la stabilité du mur.
+                    </p>
+                    <div class="technical-details">
+                        <strong>Outils :</strong> Géo-5 & Cype
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="photo-box">
+                    <img src="Lenavire/Cartenavigation/G3.png" alt="Sondage As Built">
+                </div>
+                <div class="comment-box">
+                    <span class="category-tag">Diagnostic</span>
+                    <h3>Inspection "As Built"</h3>
+                    <p>
+                    Dans le cadre du contrôle de conformité post-exécution, des relevés sont effectués sur site afin de comparer la réalisation réelle aux plans d’exécution. Un diagnostic approfondi de l’état de conservation des murs est réalisé, visant à identifier d’éventuels défauts, désordres ou anomalies affectant la structure. Des sondages non destructifs ont été menés pour contrôler le positionnement et l’intégrité des armatures. Ces investigations permettent d’évaluer la conformité de l’ouvrage aux prescriptions techniques et de confirmer sa stabilité ainsi que sa durabilité.
+                    </p>
+                    <div class="technical-details">
+                        <strong>Méthode :</strong> Relevés Etat des lieux & Ferroscan ou Pachometre.
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+<div class="container">
+        <!-- Bouton amélioré -->
+        <button class="btn-retour" onclick="window.location.href='index.html#portfolio'">
+            
+            ⛴ Retour au Navire
+        </button>
+    </div>
+    <footer>
+        
+        <p>&copy; 2026 - Portfolio- Capitaine du navire</p>
+    </footer>
+
+</body>
+</html>
